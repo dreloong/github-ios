@@ -38,6 +38,18 @@ class ReposViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: - Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let settingsNavigationController = segue.destinationViewController
+            as! UINavigationController
+        let settingsViewController = settingsNavigationController.topViewController
+            as! SettingsViewController
+        settingsViewController.searchSettings = searchSettings
+    }
+
+    // MARK: - Helpers
+
     private func fetchRepos() {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
